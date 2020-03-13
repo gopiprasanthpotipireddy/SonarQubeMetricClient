@@ -1,0 +1,33 @@
+{
+  "name": "SonarCollector",
+  "version": "1.0.0",
+  "description": "Collects Projects and Metrics from SonarQube",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^3.2.0",
+    "default-user-agent": "^1.0.0",
+    "ip": "^1.1.5",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.4",
+    "node-cron": "^2.0.3",
+    "query-string": "^6.11.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gopiprasanthpotipireddy/SonarQubeMetricClient.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gopiprasanthpotipireddy/SonarQubeMetricClient/issues"
+  },
+  "homepage": "https://github.com/gopiprasanthpotipireddy/SonarQubeMetricClient#readme"
+}
