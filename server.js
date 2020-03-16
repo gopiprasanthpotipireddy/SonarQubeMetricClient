@@ -1,7 +1,7 @@
 collectorTask=require('./collector/collectorTask');
-var cron = require('node-cron');
-var settings=require('./config/settings');
-var sonarconfig=require('./config/sonarconfig');
+cron = require('node-cron');
+settings=require('./config/settings');
+sonarconfig=require('./config/sonarconfig');
 
 class Application{
 

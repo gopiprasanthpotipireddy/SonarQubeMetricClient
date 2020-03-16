@@ -80,7 +80,7 @@ class collectorTask{
                 });
             }
         }
-        else return next(err);
+        else console.log(err);
         });
         
     }
@@ -97,7 +97,7 @@ class collectorTask{
         });
         sonarproject.save(function(err){
             if (err) {
-                return handleError(err);
+                 console.log(err);
             }
         });
 
