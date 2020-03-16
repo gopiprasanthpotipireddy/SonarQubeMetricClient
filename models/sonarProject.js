@@ -3,19 +3,13 @@ dburl=require('../config/dbconfig')
 var sonarProject = new mongoose.Schema({
   
       collectorName: String,
-      lastExecuted: { type: String, trim: true },
-      projectId:{type:Number},
+      lastExecuted: { type: String},
+      projectId:{type:String},
       projectName:String,
-      metrics:{
-          nloc:Number,
-          nviolations:Number,
-
-      }
+      metrics:JSON
     
   });
-  try {
-    await mongoose.connect(dburl, { useNewUrlParser: true });
-  } catch (error) {
-    handleError(error);
-  }
+  
+  mongoose.connect(dburl, { useNewUrlParser: true });
+  
   module.exports=mongoose.model('sonarProject',sonarProject);
