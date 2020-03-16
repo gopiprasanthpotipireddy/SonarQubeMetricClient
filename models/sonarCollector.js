@@ -10,7 +10,7 @@ var sonarCollector = new mongoose.Schema({
     
   });
   
-mongoose.connect(dburl, { useNewUrlParser: true });
+mongoose.connect(dburl, { useNewUrlParser: true,useUnifiedTopology: true}  );
  
   
 module.exports=mongoose.model('collector',sonarCollector);

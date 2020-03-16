@@ -9,26 +9,26 @@ class collectorTask{
         
     }
 
-     collect(config)  {
+      collect(config)  {
         let sonar=this.sonarClient;
         let addProjects=this.addProjects;
         let addMetrics=this.addMetrics;
         let addCollector=this.addCollector;
         new Promise(function(resolve,reject){
-            addCollector(config,(success,err)=>
+             addCollector(config,(collector,err)=>
             {
-                if(!err) resolve(success);
+                if(!err) resolve(collector);
                 else throw err;
             
             });
         }
             
-        ).then((success)=>{
+        ).then((collector)=>{
             sonar.getProjects(config,function(err,projects){
                 if(!err){
                  //addProjects(projects,function(err,projects){
                      projects.forEach(project => {
-                         console.log("collecting"+ project['key']);
+                         console.log("collecting :"+ project['key']);
                          
                          sonar.getMetrics(config,project['id'],function(err,Metrics){
                              if(!err){
@@ -39,6 +39,7 @@ class collectorTask{
                          });
                          
                      });
+                console.log('Collected Projects : '+ projects.length);
                 }
                  else{
                      console.error(err);
@@ -56,7 +57,7 @@ class collectorTask{
         query.exec(function(err,sonarproject){
             if(!err){
             if(sonarproject!=null){
-                console.log("Updating Project :" +project.key);
+                console.log("Updating Project Metrics :" +project.key);
                 //console.log(sonarproject);
                 let updatedproject=new sonarProject(sonarproject);
                // updatedproject=sonarproject._id;
@@ -113,6 +114,7 @@ class collectorTask{
                 collector.server=config.server;
                 collector.lastExecuted=new Date().toTimeString();
                 collector.save();
+                cb(collector,null);
                 }
                 else {
                    let sonarcollector= new sonarCollector({
@@ -122,9 +124,10 @@ class collectorTask{
                         lastExecuted:new Date().toTimeString()
                     });
                     sonarcollector.save();
+                    cb(collector,null);
 
                 }
-                cb(1,null);
+                //cb(1,null);
             }
             else {
                 cb(null,err);
