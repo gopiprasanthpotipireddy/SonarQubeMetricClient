@@ -12,7 +12,8 @@
     "node-cron": "^2.0.3",
     "query-string": "^6.11.1",
     "request": "^2.88.2",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {},
   "scripts": {

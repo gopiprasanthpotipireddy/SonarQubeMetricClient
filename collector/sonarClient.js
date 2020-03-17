@@ -43,17 +43,18 @@ class sonarClient{
             json: true // Automatically parses the JSON string in the response
         };
     
-        rp(options)
-            .then(function (metrics) {
-            //console.log( components.components);
-           cb(null,metrics.component.measures);
+       return  rp(options);
+    //         .then(function (metrics) {
+    //         //console.log( components.components);
+    //        cb(null,metrics.component.measures);
             
-         })
-         .catch(function (err) {
-            console.log('API call failed...');
-            cb(err,null);
-         });
-    }
+    //      })
+    //      .catch(function (err) {
+    //         console.log('API call failed...');
+    //         cb(err,null);
+    //      });
+    // }
+}
 }
 
 module.exports=sonarClient
