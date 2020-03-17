@@ -12,7 +12,7 @@ class Application{
 
     run(){
     cron.schedule(settings.cron, () => {
-    console.log('Collecting : Sonar Data');
+    //console.log('Collecting : Sonar Data');
   
      this.Task.collect(sonarconfig)
     });
