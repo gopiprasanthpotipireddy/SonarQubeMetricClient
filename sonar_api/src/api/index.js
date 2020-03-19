@@ -1,16 +1,12 @@
 var express = require('express');
-//var api = express.Router();
-//models
-const {sonarproject}=require('../models/sonarProject');
 
 //controllers
-const projectrouter =require('../controllers');
-const models={sonarproject};
+const sonarrouter =require('../controllers/sonarcontroller');
 
 
 let api=express.Router();
   //register api points
- api.use('/projects',projectrouter);
+ api.use('/sonar',sonarrouter);
   
  //errorhandler
   api.use(function(err, req, res, next) {
